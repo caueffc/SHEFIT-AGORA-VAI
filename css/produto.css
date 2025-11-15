@@ -1,0 +1,678 @@
+/* Reset de estilos */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+
+ }
+
+ /* Reset básico */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+
+ body {
+   font-family: 'Mulish', sans-serif;
+   line-height: 1.6;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   background-color: #ffffff;
+   margin: 0;
+ }
+
+ .navbar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1000;
+   background-color: #ffffff;
+   padding: 10px 0;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+ }
+
+ .header-inner-content {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 70px;
+   padding: 0 20px;
+ }
+
+ /* Logo */
+ .logo img {
+   margin-top: 5%;
+   margin-left: 5%;
+   width: 170px;
+   height: 90px;
+ }
+
+ /* Menu centralizado */
+ .main-nav {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+ }
+
+ .main-nav ul {
+   font-family: "Mulish", sans-serif;
+   font-weight: 300;
+   font-style: normal;
+   list-style: none;
+   display: flex;
+   gap: 140px;
+ }
+
+ .main-nav li {
+   color: #000000;
+   cursor: pointer;
+   font-size: 16px;
+ }
+
+ /* Ícones à direita */
+ .nav-icon-container {
+   margin-right: 1%;
+   display: flex;
+   align-items: center;
+   gap: 15px;
+ }
+
+ .nav-icon-container img {
+   margin-top: 14%;
+   margin-right: 10%;
+   width: 40px;
+   cursor: pointer;
+ }
+
+ /* Botão de login */
+ .login-button {
+   background-color: #e63770;
+   margin-right: 10%;
+   padding: 6px 12px;
+   color: white;
+   border: none;
+   border-radius: 6px;
+   text-decoration: none;
+   font-size: 14px;
+   transition: 0.3s;
+ }
+
+ .login-button:hover {
+   background-color: #c72e5f;
+ }
+
+ /* Botão padrão (mobile) */
+ .hamburger {
+   display: none;
+   font-size: 28px;
+   cursor: pointer;
+   color: rgb(0, 0, 0);
+   background: none;
+   border: none;
+   transition: transform 0.3s ease, color 0.3s ease;
+ }
+
+ /* Quando clicado */
+ .hamburger.active {
+   transform: rotate(90deg);
+   /* ou 180deg, se quiser */
+   color: #e63770;
+   /* muda a cor quando ativo */
+ }
+
+ /* RESPONSIVO */
+ @media (max-width:1008px) {
+   .header-inner-content {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 16px;
+     height: 70px;
+     position: relative;
+   }
+
+   .hamburger {
+     font-size: 20px;
+     display: block;
+     top: 0%;
+     font-size: 28px;
+     cursor: pointer;
+     color: rgb(0, 0, 0);
+     z-index: 11;
+     margin: 0;
+
+   }
+
+   .logo {
+     position: absolute;
+     left: 45%;
+     transform: translateX(-50%);
+     top: 65%;
+     transform: translate(-50%, -50%);
+     z-index: 1;
+   }
+
+   .logo img {
+     width: 130px;
+     height: auto;
+   }
+
+   .nav-icon-container {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     z-index: 1001;
+   }
+
+   .user-name {
+     display: none;
+     font-size: 15px;
+   }
+
+   .login-button {
+     padding: 5px 10px;
+     font-size: 13px;
+   }
+
+   .cart-button {
+     width: 26px;
+     height: 26px;
+   }
+
+   .main-nav {
+     position: static;
+     width: 100%;
+   }
+
+   .main-nav ul {
+     display: none;
+     flex-direction: column;
+     gap: 15px;
+     align-items: center;
+     background-color: #1d1a16;
+     width: 100%;
+     padding: 20px 0;
+     position: absolute;
+     top: 70px;
+     left: 0;
+     z-index: 999;
+   }
+
+   .main-nav ul.show {
+     display: flex;
+   }
+ }
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.produto-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 20px;
+  flex-wrap: wrap;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== IMAGEM ===== */
+.produto-imagem img {
+  width: 380px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* ===== DETALHES ===== */
+.produto-detalhes {
+  max-width: 500px;
+  color: #222;
+}
+
+.produto-detalhes h2 {
+  font-size: 28px;
+  color: #e6007e;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.produto-descricao {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* ===== INFORMAÇÕES ===== */
+.produto-info {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+}
+
+.produto-info li {
+  font-size: 14px;
+  color: #333;
+}
+
+.produto-info strong {
+  color: #e6007e;
+}
+
+/* ===== PREÇOS ===== */
+.precos {
+  margin-bottom: 20px;
+}
+
+.last-price span {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 15px;
+}
+
+.new-price span {
+  color: #e6007e;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ===== AVALIAÇÃO ===== */
+.avaliacao {
+  font-size: 15px;
+  color: #f5a623;
+  margin-bottom: 25px;
+}
+
+/* ===== BOTÃO COMPRAR ===== */
+.botoes-container {
+  margin-top: 10px;
+}
+
+.buy-button {
+  background: linear-gradient(135deg, #e6007e, #ff3ba7);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(230, 0, 126, 0.3);
+}
+
+.buy-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(230, 0, 126, 0.4);
+}
+
+/* ===== QUANTIDADE / BOTÕES ADICIONAIS ===== */
+.purchase-info {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.purchase-info input,
+.purchase-info .btn {
+  border: 1.5px solid #ddd;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.45rem 0.8rem;
+  outline: 0;
+}
+
+.purchase-info input {
+  width: 60px;
+}
+
+.purchase-info .btn {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.purchase-info .btn:first-of-type {
+  background: #256eff;
+}
+
+.purchase-info .btn:last-of-type {
+  background: #f64749;
+}
+
+.purchase-info .btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ===== REDES SOCIAIS ===== */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-links p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 10px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #e6007e;
+  border: 1px solid #e6007e;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: #e6007e;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+  .produto-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 90px;
+  }
+
+  .produto-detalhes h2 {
+    font-size: 24px;
+  }
+
+  .produto-info {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .buy-button {
+    width: 80%;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+footer {
+   background-color: rgb(241, 236, 236);
+   color: #000000;
+   padding: 50px 0;
+   text-align: center;
+ }
+
+ .footer-container {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+ }
+
+ .footer-section {
+   width: 25%;
+   margin-bottom: 20px;
+ }
+
+ .footer-section h2 {
+  color: #000000;
+   font-family: 'Oswald', sans-serif;
+   font-size: 18px;
+   margin-bottom: 15px;
+ }
+
+ .footer-section p,
+ .footer-section ul,
+ .footer-section a {
+   font-family: 'Montserrat', sans-serif;
+   color: #1f1f1f;
+   font-size: 14px;
+   line-height: 1.5;
+ }
+
+ .footer-section ul {
+   list-style: none;
+
+ }
+
+
+
+ .footer-section a {
+   text-decoration: none;
+   color: #1d1d1d;
+   transition: color 0.3s;
+ }
+
+ .footer-section a:hover {
+   color: #ff6347;
+ }
+
+ .footer-bottom {
+   border-top: 1px solid rgb(53, 51, 51);
+   font-size: 12px;
+ }
+
+ .redes-sociais a {
+   display: inline-block;
+   margin-right: 10px;
+   transition: transform 0.3s;
+ }
+
+ .redes-sociais a img {
+   width: 24px;
+   height: 24px;
+ }
+
+ .redes-sociais a:hover {
+   transform: scale(1.2);
+ }
+
+
+
+ @keyframes particle-animation {
+   0% {
+     transform: scale(1);
+     opacity: 0.8;
+   }
+
+   50% {
+     transform: scale(1.5);
+     opacity: 0.5;
+   }
+
+   100% {
+     transform: scale(0);
+     opacity: 0;
+   }
+ }
+
+ 
+/* ========================================
+   ESTILOS ADICIONADOS PARA O BADGE DO CARRINHO
+   ======================================== */
+.carrinho-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff6b9d; /* Cor rosa/vermelha do seu tema */
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 1002; /* Garante que fique acima de outros elementos */
+}
+.modal1 {
+  font-family: 'Mulish';
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  margin-top: 10rem;
+  width: 100%;
+  height: 100%;
+  
+  /* Corrigido: Garante que o modal seja um contêiner flex para centralização */
+   
+  justify-content: center;
+  align-items: center;
+}
+
+.modal1-content {
+ 
+  /* Corrigido: Removido margin-top e margin-left fixos que impediam a centralização */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 40px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  max-height: 80vh;
+  /* Adicionado: Garante que o conteúdo interno esteja centralizado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Adicionado: Centraliza o bloco do modal dentro do contêiner flex (.modal1) */
+  margin: auto;
+  overflow-y: auto;
+}
+
+
+ .close-btn1 {
+   position: absolute;
+   right: 15px;
+   top: 10px;
+   font-size: 24px;
+   cursor: pointer;
+ }
+
+ .modal1-content input {
+   width: 90%;
+   margin: 10px 0;
+   padding: 10px;
+   font-size: 16px;
+ }
+
+ #register-message {
+   font-size: 14px;
+   text-align: center;
+ }
+
+ #register-loader {
+   font-size: 14px;
+   font-style: italic;
+   text-align: center;
+   color: #555;
+ }
+
+ .loader {
+   border: 4px solid #f3f3f3;
+   /* cor clara da borda */
+   border-top: 4px solid #3498db;
+   /* cor azul da parte rotativa */
+   border-radius: 50%;
+   width: 24px;
+   height: 24px;
+   animation: spin 1s linear infinite;
+   margin: 0 auto;
+ }
+
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
+
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ /* Estilo geral para botões dentro do modal */
+ #login-modal1 button {
+   font-family: Arial, Helvetica, sans-serif;
+   margin-bottom: 4%;
+   background-color: #000000;
+   /* azul */
+   color: rgb(255, 255, 255);
+   border: none;
+   padding: 10px 20px;
+   margin-top: 15px;
+   font-size: 16px;
+   font-weight: 600;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   display: block;
+   width: 100%;
+ }
+
+
+ /* Focus para acessibilidade */
+ #login-modal1 button:focus {
+   outline: none;
+   box-shadow: 0 0 0 3px #85c1e9;
+ }
+
+ @media (max-width: 600px) {
+  .modal1-content {
+    /* Ocupa mais espaço na tela para melhor usabilidade em dispositivos móveis */
+    width: 95%;
+    max-width: none; /* Remove o limite máximo para telas pequenas */
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .modal1-content input {
+    width: 100%; /* Inputs ocupam toda a largura */
+  }
+
+  #login-modal1 button {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+}
+
+/* Para telas entre 601px e 1024px (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .modal1-content {
+    /* Um pouco maior para tablets */
+    max-width: 450px;
+    padding: 25px;
+  }
+}

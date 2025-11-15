@@ -1,0 +1,584 @@
+ /* Reset de estilos */
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ffffff;
+    margin: 0;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    
+  }
+  
+  .header-inner-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 20px;
+  }
+  
+  /* Logo */
+  .logo img {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 170px;
+    height: 90px;
+  }
+  
+  /* Menu centralizado */
+  .main-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .main-nav ul {
+    font-family: "Mulish", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    list-style: none;
+    display: flex;
+    gap: 140px;
+  }
+  
+  .main-nav li {
+    color: #000000;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Ícones à direita */
+  .nav-icon-container {
+    margin-right: 1%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .nav-icon-container img {
+    margin-top: 14%;
+    margin-right: 10%;
+    width: 40px;
+    cursor: pointer;
+  }
+  
+  /* Botão de login */
+  .login-button {
+    background-color: #e63770;
+    margin-right: 10%;
+    padding: 6px 12px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #c72e5f;
+  }
+  
+ /* Botão padrão (mobile) */
+.hamburger {
+    display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  background: none;
+  border: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+  /* Quando clicado */
+.hamburger.active {
+    transform: rotate(90deg); /* ou 180deg, se quiser */
+    color: #e63770; /* muda a cor quando ativo */
+  }
+  
+  /* RESPONSIVO */
+  @media (max-width:1008px) {
+    .header-inner-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      height: 70px;
+      position: relative;
+    }
+  
+    .hamburger {
+      font-size: 20px;
+      display: block;
+      top: 0%;
+      font-size: 28px;
+      cursor: pointer;
+      color: rgb(0, 0, 0);
+      z-index: 11;
+      margin: 0;
+
+    }
+  
+    .logo {
+      position: absolute;
+      left: 45%;
+      transform: translateX(-50%);
+      top: 65%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+  
+    .logo img {
+      width: 130px;
+      height: auto;
+    }
+  
+    .nav-icon-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1001;
+    }
+    .user-name{
+      display: none;
+      font-size: 15px;
+    }
+  
+    .login-button {
+      padding: 5px 10px;
+      font-size: 13px;
+    }
+  
+    .cart-button {
+      width: 26px;
+      height: 26px;
+    }
+  
+    .main-nav {
+      position: static;
+      width: 100%;
+    }
+  
+    .main-nav ul {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      background-color: #1d1a16;
+      width: 100%;
+      padding: 20px 0;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      z-index: 999;
+    }
+  
+    .main-nav ul.show {
+      display: flex;
+    }
+  }
+  
+  
+/* MAIN */
+main {
+    flex: 1;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Título */
+.h2-produtos {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* FILTRO */
+.filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 45px;
+    margin-bottom: 30px;
+}
+
+.filter-item {
+    text-align: center;
+}
+
+.filter-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.filter-button:hover {
+    transform: scale(1.1);
+}
+
+.filter-button[data-color="azul"] {
+    background-color: blue;
+}
+.filter-button[data-color="marrom"] {
+    background-color: #8B4513;
+}
+.filter-button[data-color="rosa"] {
+    background-color: pink;
+}
+.filter-button[data-color="verde"] {
+    background-color: green;
+}
+.filter-button[data-color="vermelho"] {
+    background-color: red;
+}
+.filter-button[data-color="todos"] {
+    background: linear-gradient(45deg, blue, #8B4513, pink, green, red);
+}
+
+/* GRID DE PRODUTOS */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    gap: 25px;
+
+}
+.FOTOS1{
+  max-width: 400%;
+  max-height:400px ;
+}
+.product {
+  gap: 0%;
+  max-width: 400px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.03);
+}
+
+.product img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-price {
+    color: #e91e63;
+    font-size: 1.1em;
+}
+
+.tamanho-rp {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.estrelas span {
+    color: gold;
+}
+
+.buy-button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #c2185b;
+}
+
+footer {
+   background-color: rgb(241, 236, 236);
+   color: #000000;
+   padding: 50px 0;
+   text-align: center;
+ }
+
+ .footer-container {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+ }
+
+ .footer-section {
+   width: 25%;
+   margin-bottom: 20px;
+ }
+
+ .footer-section h2 {
+  color: #000000;
+   font-family: 'Oswald', sans-serif;
+   font-size: 18px;
+   margin-bottom: 15px;
+ }
+
+ .footer-section p,
+ .footer-section ul,
+ .footer-section a {
+   font-family: 'Montserrat', sans-serif;
+   color: #1f1f1f;
+   font-size: 14px;
+   line-height: 1.5;
+ }
+
+ .footer-section ul {
+   list-style: none;
+
+ }
+
+
+
+ .footer-section a {
+   text-decoration: none;
+   color: #1d1d1d;
+   transition: color 0.3s;
+ }
+
+ .footer-section a:hover {
+   color: #ff6347;
+ }
+
+ .footer-bottom {
+   border-top: 1px solid rgb(53, 51, 51);
+   font-size: 12px;
+ }
+
+ .redes-sociais a {
+   display: inline-block;
+   margin-right: 10px;
+   transition: transform 0.3s;
+ }
+
+ .redes-sociais a img {
+   width: 24px;
+   height: 24px;
+ }
+
+ .redes-sociais a:hover {
+   transform: scale(1.2);
+ }
+
+
+
+ @keyframes particle-animation {
+   0% {
+     transform: scale(1);
+     opacity: 0.8;
+   }
+
+   50% {
+     transform: scale(1.5);
+     opacity: 0.5;
+   }
+
+   100% {
+     transform: scale(0);
+     opacity: 0;
+   }
+ }
+
+
+
+@keyframes particle-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+/* Estilos para a seção de suporte */
+.color-name{
+    font-family: 'Mulish';
+    font-weight: 300;
+    font-size: 80%;
+}
+.modal1 {
+  font-family: 'Mulish';
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  margin-top: 10rem;
+  width: 100%;
+  height: 100%;
+  
+  /* Corrigido: Garante que o modal seja um contêiner flex para centralização */
+   
+  justify-content: center;
+  align-items: center;
+}
+
+.modal1-content {
+ 
+  /* Corrigido: Removido margin-top e margin-left fixos que impediam a centralização */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 40px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  max-height: 80vh;
+  /* Adicionado: Garante que o conteúdo interno esteja centralizado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Adicionado: Centraliza o bloco do modal dentro do contêiner flex (.modal1) */
+  margin: auto;
+  overflow-y: auto;
+}
+
+
+ .close-btn1 {
+   position: absolute;
+   right: 15px;
+   top: 10px;
+   font-size: 24px;
+   cursor: pointer;
+ }
+
+ .modal1-content input {
+   width: 90%;
+   margin: 10px 0;
+   padding: 10px;
+   font-size: 16px;
+ }
+
+ #register-message {
+   font-size: 14px;
+   text-align: center;
+ }
+
+ #register-loader {
+   font-size: 14px;
+   font-style: italic;
+   text-align: center;
+   color: #555;
+ }
+
+ .loader {
+   border: 4px solid #f3f3f3;
+   /* cor clara da borda */
+   border-top: 4px solid #3498db;
+   /* cor azul da parte rotativa */
+   border-radius: 50%;
+   width: 24px;
+   height: 24px;
+   animation: spin 1s linear infinite;
+   margin: 0 auto;
+ }
+
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
+
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ /* Estilo geral para botões dentro do modal */
+ #login-modal1 button {
+   font-family: Arial, Helvetica, sans-serif;
+   margin-bottom: 4%;
+   background-color: #000000;
+   /* azul */
+   color: rgb(255, 255, 255);
+   border: none;
+   padding: 10px 20px;
+   margin-top: 15px;
+   font-size: 16px;
+   font-weight: 600;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   display: block;
+   width: 100%;
+ }
+
+
+ /* Focus para acessibilidade */
+ #login-modal1 button:focus {
+   outline: none;
+   box-shadow: 0 0 0 3px #85c1e9;
+ }
+
+ @media (max-width: 600px) {
+  .modal1-content {
+    /* Ocupa mais espaço na tela para melhor usabilidade em dispositivos móveis */
+    width: 95%;
+    max-width: none; /* Remove o limite máximo para telas pequenas */
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .modal1-content input {
+    width: 100%; /* Inputs ocupam toda a largura */
+  }
+
+  #login-modal1 button {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+}
+
+/* Para telas entre 601px e 1024px (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .modal1-content {
+    /* Um pouco maior para tablets */
+    max-width: 450px;
+    padding: 25px;
+  }
+}

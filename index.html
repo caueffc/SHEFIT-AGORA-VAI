@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/index.css">
+  <title>Shefit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lilita+One&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght=0,900;1,900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght=1,900&family=Playpen+Sans:wght@100..800&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Emblema+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Emblema+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <!-- NOVO: Estilo básico para mensagens de alerta -->
+
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="header-inner-content">
+
+      <!-- Ícone do menu hambúrguer (aparece só no mobile) -->
+      <div class="hamburger" id="hamburger">
+        ☰
+      </div>
+      <h1 class="logo">
+        <a href="index">
+          <img class="logo2" src="../img/Design sem nome (3)-Photoroom.png" alt="Logo da Shefit" />
+        </a>
+      </h1>
+
+
+
+      <nav class="main-nav">
+        <ul>
+          <li data-content="produtos">Produtos</li>
+          <li data-content="contato">Contato</li>
+          <li data-content="sobre">Sobre</li>
+        </ul>
+      </nav>
+
+      <div class="nav-icon-container">
+        <a href="carrinho"><img src="../img/cartt.png" alt="Carrinho"></a>
+        <a href="#" onclick="document.getElementById('login-modal1').style.display='block'" class="login-button" id="login-btn-link">Login</a>
+            <span id="user-name" style="display:none; cursor:pointer; font-weight: bold;"></span>
+             <button onclick="logout()" id="logout-btn"
+          style="color: rgb(255, 255, 255); border: none;background-color: black; padding: 5px 10px; border-radius: 50rem;">Sair</button>
+      </div>
+        
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal de Login/Cadastro -->
+  <div id="login-modal1" class="modal1">
+    <div class="modal1-content">
+      <span class="close-btn1" onclick="closeModal1()">&times;</span>
+
+      <!-- Formulário de Login -->
+      <div id="login-form1">
+        <h2>Login</h2>
+        <!-- NOVO: Elemento para mensagens de login -->
+        <div id="login-modal1-message" class="alert alert-error" style="display: none;"></div>
+        <input type="text" id="login-username" placeholder="E-mail" />
+        <input type="password" id="login-password" placeholder="Senha" />
+        <button onclick="login1()">Entrar</button>
+        <p>Ainda não tem conta? <a href="#" onclick="toggleForm1()">Cadastre-se</a></p>
+      </div>
+
+      <!-- Formulário de Cadastro -->
+      <div id="register-form1" style="display: none;">
+        <h2>Cadastro</h2>
+        <!-- NOVO: Elemento para mensagens de cadastro -->
+        <div id="register-form1-message" class="alert alert-error" style="display: none;"></div>
+
+        <input type="text" id="register-cpf" placeholder="CPF" maxlength="14" onblur="checkCPF()">
+        <input type="text" id="register-name" placeholder="Nome completo" required>
+        <input type="text" id="register-phone" placeholder="Telefone" maxlength="15" required>
+        <input type="text" id="register-username" placeholder="E-mail" required>
+        <input type="password" id="register-password" placeholder="Senha" required>
+        <!-- Campo CEP -->
+        <input type="text" id="register-cep" placeholder="CEP" maxlength="8">
+
+        <!-- Campos que vão receber os dados -->
+        <input type="text" id="register-street" placeholder="Rua">
+        <input type="text" id="register-neighborhood" placeholder="Bairro">
+        <input type="text" id="register-city" placeholder="Cidade">
+        <input type="text" id="register-state" placeholder="Estado">
+        <div id="cep-error" style="color:red; margin-top:5px; display:none;">CEP inválido</div>
+        <!-- Loader -->
+        <div id="cep-loader" style="display:none; text-align:center; margin-top:5px;">
+          <img src="https://i.gifer.com/ZZ5H.gif" alt="Carregando..." width="30">
+        </div>
+
+        <button onclick="register1()">Cadastrar</button>
+        <p>Já tem conta? <a href="#" onclick="toggleForm1()">Fazer login</a></p>
+
+        <!-- Mensagem que aparece para sucesso ou erro -->
+        <div id="register-message" style="display:none; margin-top:10px; color: green; font-weight: bold;"></div>
+      </div>
+      <!-- Mensagem que aparece para sucesso ou erro -->
+      <div id="register-message" style="display:none; margin-top:10px; color: green; font-weight: bold;"></div>
+
+      <div id="register-loader" style="display:none; margin-top:10px; text-align:center;">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="meuModal" class="modal">
+    <div class="modal-conteudo">
+      <span class="fechar">&times;</span>
+      <p id="mensagemModal"></p>
+    </div>
+  </div>
+  <header class="header">
+    <div class="fundo-branco"></div>
+    <div class="header-inner-content-2">
+      <div class="header-bottom-side-left scroll-animation">
+        <h2>Transforme Seu Estilo <span class="Fitzin">fitness</span> <br>com a SheFit</h2>
+        <div class="button-container"></div>
+      </div>
+    </div>
+    <div class="header-bottom-side-center">
+    </div>
+  </header>
+  <main>
+    <h2 class="titulo-destaque1">Venha Conferir a nova coleção</h2>
+    <a href="/produtostela" class="btn-nike">Ver Coleção</a>
+  </main>
+  </main>
+  <main>
+    <div class="gray-background">
+      <div class="pager-inner-content">
+
+      
+        <div class="imagens">
+
+          <div class="img-box">
+            <img src="../img/foto1.jpg" alt="Produto ">
+            <span class="img-text">O amor é perfeito para quem busca estilo.</span>
+            <button class="btn1-nike" data-id="11">Ver Conjunto</button>
+          </div>
+          <div class="img-box">
+            <img src="../img/foto2.jpg" alt="Produto 2">
+            <span class="img-text">Estiloso, moderno, fresco, vibrante, confortável, marcante.</span>
+           <button class="btn1-nike" data-id="12">Ver Conjunto</button>
+          </div>
+          <div class="img-box">
+            <img src="../img/foto3.jpeg" alt="Produto 3">
+            <span class="img-text">O conjunto azul destaca-se pela elegância.</span>
+           <button class="btn1-nike" data-id="13">Ver Conjunto</button>
+          </div>
+          <div class="img-box" data-id="11">
+            <img src="../img/foto4.jpg" alt="Produto 4">
+            <span class="img-text">Seja no esporte ou na musculatúra!</span>
+            <button class="btn1-nike" data-id="14">Ver Conjunto</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+
+
+   <div class="container">
+<div class="card">
+ <div class="badge">OFERTA</div>
+ <div class="tilt">
+  <div class="img"><img src="../img/azul.png" alt="Premium Laptop"></div>
+ </div>
+ <div class="info">
+  <div class="cat">Performance</div>
+  <h2 class="title">Legging PowerFit Azul</h2>
+  <p class="desc">Conforto e performance para seus treinos com tecido compressivo e respirável.</p>
+  <div class="feats">
+   <span class="feat">Nova Coleção</span>
+   <span class="feat">Mais Vendido</span>
+   <span class="feat">Edição Limitada</span>
+  </div>
+  <div class="bottom">
+   <div class="price">
+    <span class="old">R$249,90</span>
+    <span class="new">R$199,90</span>
+   </div>
+   <button class="btn">
+    <span>+ Carrinho</span>
+    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4"/>
+     <line x1="3" y1="6" x2="21" y2="6"/>
+     <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+   </button>
+  </div>
+  <div class="meta">
+   <div class="rating">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span class="rcount">125 Avaliações</span>
+   </div>
+   <div class="stock">In Stock</div>
+  </div>
+ </div>
+</div>
+<div class="card">
+ <div class="badge">OFERTA</div>
+ <div class="tilt">
+  <div class="img"><img src="../img/verde.png" alt="Premium Laptop"></div>
+ </div>
+ <div class="info">
+  <div class="cat">Performance</div>
+  <h2 class="title">Legging Powerfit Aul</h2>
+  <p class="desc">Conforto e performance para seus treinos com tecido compressivo e respirável.</p>
+  <div class="feats">
+   <span class="feat">Nova Coleção</span>
+   <span class="feat">Destaque treino</span>
+   <span class="feat">Coloração</span>
+  </div>
+  <div class="bottom">
+   <div class="price">
+    <span class="old">R$149.99</span>
+    <span class="new">R$129.99</span>
+   </div>
+   <button class="btn">
+    <span>+ Carrinho</span>
+    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4"/>
+     <line x1="3" y1="6" x2="21" y2="6"/>
+     <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+   </button>
+  </div>
+  <div class="meta">
+   <div class="rating">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span class="rcount">109 Avaliações</span>
+   </div>
+   <div class="stock">In Stock</div>
+  </div>
+ </div>
+</div>
+<div class="card">
+ <div class="badge">OFERTA</div>
+ <div class="tilt">
+  <div class="img"><img src="../img/vermelho.png" alt="Premium Laptop"></div>
+ </div>
+ <div class="info">
+   <div class="cat">Performance</div>
+  <h2 class="title">Legging Powerfit Vermelho</h2>
+  <p class="desc">Conforto e performance para seus treinos com tecido compressivo e respirável.</p>
+  <div class="feats">
+   <span class="feat">Nova Coleção</span>
+   <span class="feat">Coloração</span>
+   <span class="feat">Poliestileno</span>
+  </div>
+  <div class="bottom">
+   <div class="price">
+    <span class="old">R$169.99</span>
+    <span class="new">R$139.99</span>
+   </div>
+   <button class="btn">
+    <span>+ Carrinho</span>
+    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4"/>
+     <line x1="3" y1="6" x2="21" y2="6"/>
+     <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+   </button>
+  </div>
+  <div class="meta">
+   <div class="rating">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span class="rcount">245 Avaliações</span>
+   </div>
+   <div class="stock">In Stock</div>
+  </div>
+ </div>
+</div>
+<div class="card">
+ <div class="badge">OFERTA</div>
+ <div class="tilt">
+  <div class="img"><img src="../img/marrom e branco.png" alt="Premium Laptop"></div>
+ </div>
+ <div class="info">
+    <div class="cat">Performance</div>
+  <h2 class="title">Legging Powerfit Marrom</h2>
+  <p class="desc">Conforto e performance para seus treinos com tecido compressivo e respirável.</p>
+  <div class="feats">
+   <span class="feat">Tecido</span>
+   <span class="feat">Oferta</span>
+   <span class="feat">Coloração</span>
+  </div>
+  <div class="bottom">
+   <div class="price">
+    <span class="old">R$129.99</span>
+    <span class="new">R$109.99</span>
+   </div>
+   <button class="btn">
+    <span>+ Carrinho</span>
+    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4"/>
+     <line x1="3" y1="6" x2="21" y2="6"/>
+     <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+   </button>
+  </div>
+  <div class="meta">
+   <div class="rating">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span class="rcount">109 Avaliações</span>
+   </div>
+   <div class="stock">In Stock</div>
+  </div>
+ </div>
+</div>
+</div>
+<footer>
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h2>Sobre a SheFit</h2>
+        <p>Na SheFit, oferecemos roupas fitness de alta qualidade para que você se sinta confortável e confiante
+          durante seus treinos.</p>
+      </div>
+      <div class="footer-section links">
+        <h2>Links Rápidos</h2>
+        <ul>
+          <li><a href="index#top">Voltar</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contato">
+        <h2>Contato</h2>
+        <p><strong>Email:</strong> contato@shefit.com</p>
+        <p><strong>Telefone:</strong> +55 11 99999-9999</p>
+        <a href="https://wa.me/5511999999999" target="_blank">
+          <img src="../img/10000484_processed.jpg" alt="WhatsApp da SheFit" style="width: 40px; height: auto;">
+        </a>
+        <a href="https://instagram.com/use.shefit/" target="_blank">
+          <img src="../img/logotipo-da-aplicacao-instagram-em-fundo-branco_1301901-2125_processed.png"
+            alt="WhatsApp da SheFit" style="width: 40px; height: auto;">
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 SheFit. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  
+  <script src="../js/auth-completo.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const verConjuntoButtons = document.querySelectorAll('.btn1-nike');
+
+      verConjuntoButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+          const productId = event.currentTarget.getAttribute('data-id');
+          if (productId) {
+            // Redireciona para a página de detalhes do produto, passando o ID na URL
+            window.location.href = `/produto?id=${productId}`;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

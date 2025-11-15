@@ -1,0 +1,367 @@
+/* Reset de estilos */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+
+ }
+
+ /* Reset básico */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+
+ body {
+   background: linear-gradient(135deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%) center/cover no-repeat;min-height:100vh;
+   font-family: 'Mulish', sans-serif;
+   line-height: 1.6;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   background-color: #ffffff;
+   margin: 0;
+ }
+
+ .navbar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1000;
+   background-color: #ffffff;
+   padding: 10px 0;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+ }
+
+ .header-inner-content {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 70px;
+   padding: 0 20px;
+ }
+
+ /* Logo */
+ .logo img {
+   margin-top: 5%;
+   margin-left: 5%;
+   width: 170px;
+   height: 90px;
+ }
+
+ /* Menu centralizado */
+ .main-nav {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+ }
+
+ .main-nav ul {
+   font-family: "Mulish", sans-serif;
+   font-weight: 300;
+   font-style: normal;
+   list-style: none;
+   display: flex;
+   gap: 140px;
+ }
+
+ .main-nav li {
+   color: #000000;
+   cursor: pointer;
+   font-size: 16px;
+ }
+
+ /* Ícones à direita */
+ .nav-icon-container {
+   margin-right: 1%;
+   display: flex;
+   align-items: center;
+   gap: 15px;
+ }
+
+ .nav-icon-container img {
+   margin-top: 14%;
+   margin-right: 10%;
+   width: 40px;
+   cursor: pointer;
+ }
+
+ /* Botão de login */
+ .login-button {
+   background-color: #e63770;
+   margin-right: 10%;
+   padding: 6px 12px;
+   color: white;
+   border: none;
+   border-radius: 6px;
+   text-decoration: none;
+   font-size: 14px;
+   transition: 0.3s;
+ }
+
+ .login-button:hover {
+   background-color: #c72e5f;
+ }
+
+ /* Botão padrão (mobile) */
+ .hamburger {
+   display: none;
+   font-size: 28px;
+   cursor: pointer;
+   color: rgb(0, 0, 0);
+   background: none;
+   border: none;
+   transition: transform 0.3s ease, color 0.3s ease;
+ }
+
+ /* Quando clicado */
+ .hamburger.active {
+   transform: rotate(90deg);
+   /* ou 180deg, se quiser */
+   color: #e63770;
+   /* muda a cor quando ativo */
+ }
+
+ /* RESPONSIVO */
+ @media (max-width:1008px) {
+   .header-inner-content {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 16px;
+     height: 70px;
+     position: relative;
+   }
+
+   .hamburger {
+     font-size: 20px;
+     display: block;
+     top: 0%;
+     font-size: 28px;
+     cursor: pointer;
+     color: rgb(0, 0, 0);
+     z-index: 11;
+     margin: 0;
+
+   }
+
+   .logo {
+     position: absolute;
+     left: 45%;
+     transform: translateX(-50%);
+     top: 65%;
+     transform: translate(-50%, -50%);
+     z-index: 1;
+   }
+
+   .logo img {
+     width: 130px;
+     height: auto;
+   }
+
+   .nav-icon-container {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     z-index: 1001;
+   }
+
+   .user-name {
+     display: none;
+     font-size: 15px;
+   }
+
+   .login-button {
+     padding: 5px 10px;
+     font-size: 13px;
+   }
+
+   .cart-button {
+     width: 26px;
+     height: 26px;
+   }
+
+   .main-nav {
+     position: static;
+     width: 100%;
+   }
+
+   .main-nav ul {
+     display: none;
+     flex-direction: column;
+     gap: 15px;
+     align-items: center;
+     background-color: #1d1a16;
+     width: 100%;
+     padding: 20px 0;
+     position: absolute;
+     top: 70px;
+     left: 0;
+     z-index: 999;
+   }
+
+   .main-nav ul.show {
+     display: flex;
+   }
+ }
+
+
+
+
+.profile-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-container h1 {
+    color: #ff007f; /* Cor principal do tema SheFit (rosa/pink) */
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.profile-section {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.profile-section h2 {
+    color: #333;
+    border-bottom: 2px solid #ff007f;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Ajuste para formulários de senha que são mais simples */
+#password-form {
+    grid-template-columns: 1fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-form label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="password"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 1em;
+}
+
+.profile-form input:focus {
+    border-color: #ff007f;
+    box-shadow: 0 0 5px rgba(255, 0, 127, 0.3);
+    outline: none;
+}
+
+.profile-form input:disabled {
+    background-color: #e9e9e9;
+    cursor: not-allowed;
+}
+
+.profile-form button {
+    background-color: #ff007f;
+    color: white;
+    padding: 12px 25px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.1s;
+    grid-column: 1 / -1; /* Ocupa toda a largura */
+}
+
+.profile-form button:hover {
+    background-color: #cc0066;
+    transform: translateY(-1px);
+}
+
+/* Estilos para as mensagens de alerta */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .profile-form {
+        grid-template-columns: 1fr;
+    }
+    .profile-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+/* Estilo para o header (para manter a consistência) */
+/* Assumindo que o header será copiado do index.html */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.nav-user-info a {
+    color: #ff007f;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-user-info a:hover {
+    color: #cc0066;
+    text-decoration: underline;
+}

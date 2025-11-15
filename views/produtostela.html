@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos | SheFit</title>
+    <link rel="stylesheet" href="../css/telaproduto.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Lilita+One&family=Anton&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,900&family=Playpen+Sans:wght@100..800&family=Bebas+Neue&family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Emblema+One&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="header-inner-content">
+            <div class="hamburger" id="hamburger">☰</div>
+            <h1 class="logo">
+                <a href="index">
+                    <img class="logo2" src="../img/Design sem nome (3)-Photoroom.png" alt="Logo da Shefit"/>
+                </a>
+            </h1>
+            <nav class="main-nav">
+                <ul>
+                    <li data-content="produtos">Produtos</li>
+                    <li data-content="contato">Contato</li>
+                    <li data-content="sobre">Sobre</li>
+                </ul>
+            </nav>
+            <div class="nav-icon-container">
+                <a href="carrinho"><img src="../img/cartt.png" alt="Carrinho" /></a>
+                <a href="#" onclick="document.getElementById('login-modal1').style.display='block'" class="login-button" id="login-button">Login</a>
+                <span class="user-name" id="user-name"></span>
+                <button onclick="logout()" id="logout-btn" style="color:#fff; border:none; background-color:black; padding:5px 10px; border-radius:50rem; display: none;">Sair</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <section id="produtos">
+            <h2 class="h2-produtos">NOSSOS PRODUTOS</h2>
+
+            <!-- Filtro -->
+            <div class="filter">
+                <div class="filter-item"><button class="filter-button" data-color="todos"></button><h1 class="color-name">Todos</h1></div>
+                <div class="filter-item"><button class="filter-button" data-color="azul"></button><h1 class="color-name">Azul</h1></div>
+                <div class="filter-item"><button class="filter-button" data-color="marrom"></button><h1 class="color-name">Marrom</h1></div>
+                <div class="filter-item"><button class="filter-button" data-color="rosa"></button><h1 class="color-name">Rosa</h1></div>
+                <div class="filter-item"><button class="filter-button" data-color="verde"></button><h1 class="color-name">Verde</h1></div>
+                <div class="filter-item"><button class="filter-button" data-color="vermelho"></button><h1 class="color-name">Vermelho</h1></div>
+            </div>
+
+            <!-- Grid de Produtos -->
+            <div class="product-grid" id="product-grid">
+                <!-- Cada produto terá data-id para passar para produto -->
+                <div class="product" data-id="1" data-color="azul">
+                    <img class="FOTOS1" src="../img/verde3.png" alt="Combo Fitness 1">
+                    <p class="product-name">Combo Fitness 1</p>
+                    <p class="product-price">139,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="1">Comprar</button>
+                </div>
+
+                <div class="product" data-id="2" data-color="marrom">
+                    <img class="FOTOS1" src="../img/Design sem nome (13).png" alt="Combo Fitness 2">
+                    <p class="product-name">Combo Fitness 2</p>
+                    <p class="product-price">159,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="2">Comprar</button>
+                </div>
+
+                <div class="product" data-id="3" data-color="rosa">
+                    <img class="FOTOS1" src="../img/rosa3.png" alt="Combo Fitness 3">
+                    <p class="product-name">Combo Fitness 3</p>
+                    <p class="product-price">89,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="3">Comprar</button>
+                </div>
+
+                <div class="product" data-id="4" data-color="verde">
+                    <img class="FOTOS1" src="../img/verde1.png" alt="Combo Fitness 4">
+                    <p class="product-name">Combo Fitness 4</p>
+                    <p class="product-price">169,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="4">Comprar</button>
+                </div>
+
+                <div class="product" data-id="5" data-color="vermelho">
+                    <img class="FOTOS1" src="../img/vermelho.png" alt="Combo Fitness 5">
+                    <p class="product-name">Combo Fitness 5</p>
+                    <p class="product-price">149,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="5">Comprar</button>
+                </div>
+
+                <div class="product" data-id="6" data-color="verde">
+                    <img class="FOTOS1" src="../img/verdetop1.png" alt="Combo Fitness 6">
+                    <p class="product-name">Combo Fitness 6</p>
+                    <p class="product-price">169,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="6">Comprar</button>
+                </div>
+
+                <div class="product" data-id="7" data-color="rosa">
+                    <img class="FOTOS1" src="../img/rosa e branco.png" alt="Combo Fitness 7">
+                    <p class="product-name">Combo Fitness 7</p>
+                    <p class="product-price">159,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="7">Comprar</button>
+                </div>
+
+                <div class="product" data-id="8" data-color="rosa">
+                    <img class="FOTOS1" src="../img/Design sem nome (34).png" alt="Combo Fitness 8">
+                    <p class="product-name">Combo Fitness 8</p>
+                    <p class="product-price">149,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="8">Comprar</button>
+                </div>
+
+                <div class="product" data-id="9" data-color="azul">
+                    <img class="FOTOS1" src="../img/Design sem nome (8).png" alt="Combo Fitness 9">
+                    <p class="product-name">Combo Fitness 9</p>
+                    <p class="product-price">139,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="9">Comprar</button>
+                </div>
+
+                <div class="product" data-id="10" data-color="marrom">
+                    <img class="FOTOS1" src="../img/Design_sem_nome_10.png" alt="Combo Fitness 10">
+                    <p class="product-name">Combo Fitness 10</p>
+                    <p class="product-price">149,90 R$</p>
+                    <p class="tamanho-rp">Disponível tamanho P M G</p>
+                    <div class="estrelas">★★★★★</div>
+                    <button class="buy-button" data-id="10">Comprar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Login/Cadastro (Copiado do index.html) -->
+    <div id="login-modal1" class="modal1" style="display: none;">
+        <div class="modal1-content">
+            <span class="close-btn1" onclick="closeModal1()">&times;</span>
+
+            <!-- Formulário de Login -->
+            <div id="login-form1">
+                <h2>Login</h2>
+                <div id="login-modal1-message" class="alert alert-error" style="display: none;"></div>
+                <input type="text" id="login-username" placeholder="E-mail" />
+                <input type="password" id="login-password" placeholder="Senha" />
+                <button onclick="login1()">Entrar</button>
+                <p>Ainda não tem conta? <a href="#" onclick="toggleForm1()">Cadastre-se</a></p>
+            </div>
+
+            <!-- Formulário de Cadastro -->
+            <div id="register-form1" style="display: none;">
+                <h2>Cadastro</h2>
+                <div id="register-form1-message" class="alert alert-error" style="display: none;"></div>
+
+                <input type="text" id="register-cpf" placeholder="CPF" maxlength="14" onblur="checkCPF()">
+                <input type="text" id="register-name" placeholder="Nome completo" required>
+                <input type="text" id="register-phone" placeholder="Telefone" maxlength="15" required>
+                <input type="text" id="register-username" placeholder="E-mail" required>
+                <input type="password" id="register-password" placeholder="Senha" required>
+                <input type="text" id="register-cep" placeholder="CEP" maxlength="8">
+                <input type="text" id="register-street" placeholder="Rua">
+                <input type="text" id="register-neighborhood" placeholder="Bairro">
+                <input type="text" id="register-city" placeholder="Cidade">
+                <input type="text" id="register-state" placeholder="Estado">
+                <div id="cep-error" style="color:red; margin-top:5px; display:none;">CEP inválido</div>
+                <div id="cep-loader" style="display:none; text-align:center; margin-top:5px;">
+                    <img src="../img/loading.gif" alt="Carregando..." width="30">
+                </div>
+
+                <button onclick="register1()">Cadastrar</button>
+                <p>Já tem conta? <a href="#" onclick="toggleForm1()">Fazer login</a></p>
+
+                <div id="register-message" style="display:none; margin-top:10px; color: green; font-weight: bold;"></div>
+            </div>
+            <div id="register-loader" style="display:none; margin-top:10px; text-align:center;">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Sobre a SheFit</h2>
+                <p>Na SheFit, oferecemos roupas fitness de alta qualidade para que você se sinta confortável e confiante durante seus treinos.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Links Rápidos</h2>
+                <ul>
+                    <li><a href="index#top">Voltar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contato">
+                <h2>Contato</h2>
+                <p><strong>Instagram:</strong> @use.shefit</p>
+                <p><strong>Telefone:</strong> +55 24 99989-8414</p>
+                <a href="https://wa.me/5524999898414" target="_blank">
+                    <img src="../img/10000484_processed.jpg" alt="WhatsApp" style="width:40px;height:auto;">
+                </a>
+                <a href="https://instagram.com/use.shefit/" target="_blank">
+                    <img src="../img/logotipo-da-aplicacao-instagram-em-fundo-branco_1301901-2125_processed.png" alt="Instagram" style="width:40px;height:auto;">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SheFit. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/auth-completo.js"></script>
+    <script>
+        // Filtro de cores
+        const filterButtons = document.querySelectorAll('.filter-button');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const color = button.getAttribute('data-color');
+                const products = document.querySelectorAll('.product');
+                products.forEach(product => {
+                    product.style.display = (color === 'todos' || product.getAttribute('data-color') === color) ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Controle de usuário
+        const userNameDisplay = document.getElementById("user-name");
+        const loginButton = document.getElementById("login-button");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        function updateUserState() {
+            const savedUser = localStorage.getItem("username");
+            if(savedUser){
+                userNameDisplay.textContent = `Olá, ${savedUser}`;
+                loginButton.style.display = "none";
+                logoutBtn.style.display = "inline";
+            } else {
+                userNameDisplay.textContent = "";
+                loginButton.style.display = "inline";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        // A função logout agora está no auth-completo.js e usa a API do backend.
+        // A função updateUserState agora é a updateNavbar do auth-completo.js.
+        // As funções login1, register1, toggleForm1, closeModal1 também estão no auth-completo.js.
+
+        // Menu hamburger
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.querySelector(".main-nav ul");
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("show");
+            hamburger.classList.toggle("active");
+        });
+
+        // Modal textos menu
+        const itensMenu = document.querySelectorAll('.main-nav li');
+        const modal = document.getElementById('meuModal');
+        const fechar = document.querySelector('.fechar');
+        const mensagem = document.getElementById('mensagemModal');
+
+        const textos = {
+            produtos: 'Confira nossos produtos incríveis para elevar seu treino!',
+            contato: 'Entre em contato conosco pelo Instagram ou WhatsApp /  @use.shefit - (24)99999-9999',
+            sobre: 'A SheFit é muito mais do que uma marca de roupas fitness. Criamos peças que unem conforto, estilo e funcionalidade.'
+        }
+
+        itensMenu.forEach(item => {
+            item.addEventListener('click', () => {
+                const tipo = item.getAttribute('data-content');
+                mensagem.textContent = textos[tipo] || 'Conteúdo não encontrado.';
+                modal.style.display = 'block';
+            });
+        });
+
+        fechar?.addEventListener('click', () => { modal.style.display = 'none'; });
+        window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display='none'; });
+
+        // Botões de compra com query string
+        const buyButtons = document.querySelectorAll('.buy-button');
+        buyButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const productId = btn.getAttribute('data-id');
+                window.location.href = `produto?id=${productId}`;
+            });
+        });
+
+        // Funções de controle do modal (necessárias para o onclick no HTML)
+        function toggleForm1() {
+            const loginForm = document.getElementById('login-form1');
+            const registerForm = document.getElementById('register-form1');
+
+            if (loginForm.style.display !== 'none') {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            } else {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            }
+        }
+
+        function closeModal1() {
+            document.getElementById('login-modal1').style.display = 'none';
+        }
+
+        window.onload = () => {
+            // Chama a função de atualização da navbar (que está no auth-completo.js)
+            if (typeof updateNavbar === 'function') {
+                updateNavbar();
+            }
+        };
+    </script>
+</body>
+</html>

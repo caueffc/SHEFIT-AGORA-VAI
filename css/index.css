@@ -1,0 +1,1597 @@
+ /* Reset de estilos */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+
+ }
+
+ /* Reset básico */
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+
+ body  {
+   background: linear-gradient(135deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%) center/cover no-repeat;min-height:100vh;
+   font-family: 'Mulish', sans-serif;
+   line-height: 1.6;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   background-color: #ffffff;
+   margin: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+ }
+
+
+ body::-webkit-scrollbar {
+    display: none;
+}
+
+
+body {
+    scrollbar-width: none;
+}
+
+
+body {
+    -ms-overflow-style: none;
+}
+  
+ .navbar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1000;
+   background-color: #ffffff;
+   padding: 10px 0;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+ }
+
+ .header-inner-content {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 70px;
+   padding: 0 20px;
+ }
+
+ /* Logo */
+ .logo img {
+   margin-top: 5%;
+   margin-left: 5%;
+   width: 170px;
+   height: 90px;
+ }
+
+ /* Menu centralizado */
+ .main-nav {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+ }
+
+ .main-nav ul {
+   font-family: "Mulish", sans-serif;
+   font-weight: 300;
+   font-style: normal;
+   list-style: none;
+   display: flex;
+   gap: 140px;
+ }
+
+ .main-nav li {
+   color: #000000;
+   cursor: pointer;
+   font-size: 16px;
+ }
+
+ /* Ícones à direita */
+ .nav-icon-container {
+   margin-right: 1%;
+   display: flex;
+   align-items: center;
+   gap: 15px;
+ }
+
+ .nav-icon-container img {
+   margin-top: 14%;
+   margin-right: 10%;
+   width: 40px;
+   cursor: pointer;
+ }
+
+ /* Botão de login */
+ .login-button {
+   background-color: #e63770;
+   margin-right: 10%;
+   padding: 6px 12px;
+   color: white;
+   border: none;
+   border-radius: 6px;
+   text-decoration: none;
+   font-size: 14px;
+   transition: 0.3s;
+ }
+
+ .login-button:hover {
+   background-color: #c72e5f;
+ }
+
+ /* Botão padrão (mobile) */
+ .hamburger {
+   display: none;
+   font-size: 28px;
+   cursor: pointer;
+   color: rgb(0, 0, 0);
+   background: none;
+   border: none;
+   transition: transform 0.3s ease, color 0.3s ease;
+ }
+
+ /* Quando clicado */
+ .hamburger.active {
+   transform: rotate(90deg);
+   /* ou 180deg, se quiser */
+   color: #e63770;
+   /* muda a cor quando ativo */
+ }
+
+ /* RESPONSIVO */
+ @media (max-width:1008px) {
+   .header-inner-content {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 16px;
+     height: 70px;
+     position: relative;
+   }
+
+   .hamburger {
+     font-size: 20px;
+     display: block;
+     top: 0%;
+     font-size: 28px;
+     cursor: pointer;
+     color: rgb(0, 0, 0);
+     z-index: 11;
+     margin: 0;
+
+   }
+
+   .logo {
+     position: absolute;
+     left: 45%;
+     transform: translateX(-50%);
+     top: 65%;
+     transform: translate(-50%, -50%);
+     z-index: 1;
+   }
+
+   .logo img {
+     width: 130px;
+     height: auto;
+   }
+
+   .nav-icon-container {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     z-index: 1001;
+   }
+
+   .user-name {
+     display: none;
+     font-size: 15px;
+   }
+
+   .login-button {
+     padding: 5px 10px;
+     font-size: 13px;
+   }
+
+   .cart-button {
+     width: 26px;
+     height: 26px;
+   }
+
+   .main-nav {
+     position: static;
+     width: 100%;
+   }
+
+   .main-nav ul {
+     display: none;
+     flex-direction: column;
+     gap: 15px;
+     align-items: center;
+     background-color: #1d1a16;
+     width: 100%;
+     padding: 20px 0;
+     position: absolute;
+     top: 70px;
+     left: 0;
+     z-index: 999;
+   }
+
+   .main-nav ul.show {
+     display: flex;
+   }
+ }
+
+
+
+
+ .header-bottom-side-left {
+   margin-left: 20px;
+ }
+
+
+ .button:hover {
+   background-color: #e62b00;
+   /* Cor do botão ao passar o mouse */
+ }
+
+
+ .produto {
+   background: linear-gradient(135deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%) center/cover no-repeat;min-height:100vh;
+   background-color: white;
+   /* Cor de fundo do produto */
+   border-radius: 10px;
+   /* Bordas arredondadas */
+   padding: 10px;
+   /* Espaçamento interno do produto */
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   /* Sombra do produto */
+   text-align: center;
+   /* Centraliza o texto */
+ }
+
+ .product img {
+   max-width: 100%;
+   /* Ajusta a imagem ao tamanho do produto */
+   height: auto;
+   /* Mantém a proporção da imagem */
+ }
+
+
+
+ .buy-button {
+   background-color: #ff6200ea;
+   /* Cor do botão de comprar */
+   color: white;
+   /* Cor do texto do botão */
+   padding: 5px 10px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+ }
+
+ .buy-button:hover {
+   background-color: #e62b00;
+   /* Cor do botão de comprar ao passar o mouse */
+ }
+
+
+
+
+
+
+
+
+
+
+ /* Estilo do header com imagem de fundo */
+ .header {
+   background-image: url('../img/academiacopy.png');
+   border-radius: 300px;
+   margin-top: 8rem;
+   margin-bottom: 4rem;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   text-align: center;
+   max-width: 100%;
+   margin-left: 15px;
+ }
+
+
+
+ .header-inner-content-2 {
+
+   position: absolute;
+   top: 69%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+   line-height: 1.2;
+   /* Ajusta a altura da linha para diminuir o espaçamento interno */
+ }
+
+ .Fitzin {
+
+   color: #ffbb00;
+
+   font-family: "Mulish";
+   font-style: normal;
+   font-weight: 500;
+   font-optical-sizing: auto;
+   font-style: normal;
+   line-height: 0.002;
+   /* Ajusta a altura da linha para diminuir o espaçamento interno */
+   -webkit-text-stroke: 0.px rgb(255, 255, 255);
+   /* contorno de 2px preto */
+   font-weight: bold;
+ }
+
+
+
+ /* Seção da introdução (à esquerda) */
+ .header-bottom-side-left {
+   flex-basis: 50%;
+   padding: 0.1rem;
+   text-align: center;
+ }
+
+ .header-bottom-side-left h2 {
+   font-size: 100px;
+   font-family: 'Oswald', sans-serif;
+   color: #fff;
+   font-weight: 700;
+   margin-bottom: 6.51rem;
+   text-transform: uppercase;
+   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+   letter-spacing: 0.1rem;
+   animation: fadeIn 2s ease-in-out;
+
+ }
+
+ .header-bottom-side-left p {
+   font-size: 1.5rem;
+   font-family: 'Roboto', sans-serif;
+   color: #f0f0f0;
+   line-height: 1.8;
+   margin-top: -1.8rem;
+   margin-bottom: 2.5rem;
+   max-width: 80%;
+   animation: fadeInUp 1.5s ease-in-out;
+   margin-left: 5rem;
+   margin-top: 1rem;
+   margin-bottom: 3rem;
+ }
+
+ /* Animação suave para a introdução */
+ @keyframes fadeIn {
+   0% {
+     opacity: 0;
+     transform: translateY(-20px);
+   }
+
+   100% {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+
+ @keyframes fadeInUp {
+   0% {
+     opacity: 0;
+     transform: translateY(20px);
+   }
+
+   100% {
+     opacity: 1;
+     transform: translateY(0);
+   }
+
+ }
+
+ @media (max-width: 968px) {
+   .header {
+     margin-left: 0%;
+     max-width: 100%;
+     border-radius: 0%;
+     margin-right: 0%;
+     margin-top: 0%;
+   }
+
+   .header-inner-content-2 {
+     flex-direction: column;
+     text-align: center;
+   }
+
+   .header-bottom-side-left {
+     padding: 20px;
+   }
+
+   .header-bottom-side-left h2 {
+     font-size: 3rem;
+     /* Reduz o tamanho do título */
+   }
+
+   .header-bottom-side-center {
+     display: none;
+     /* Esconde esse elemento em telas menores */
+   }
+ }
+
+
+ .header-bottom-side-left .button {
+   font-family: 'Mulish', sans-serif;
+   display: flex;
+   padding: 1.5rem 0.5rem;
+   background-color: #c6008c;
+   border-radius: 9999px;
+   color: rgb(255, 255, 255);
+   text-shadow: 1px 1px 1px #b1a2a2;
+   text-decoration: none;
+   transition: all 0.3s;
+   align-items: center;
+   justify-content: center;
+   max-width: 350px;
+   position: fixed;
+   /* Fixa o botão na tela */
+   bottom: 15px;
+   /* Define a distância da borda inferior */
+   left: 50%;
+   /* Centraliza horizontalmente */
+   transform: translateX(-50%);
+   /* Ajusta o centro do botão */
+   z-index: 1000;
+   /* Garante que fique sobre outros elementos */
+ }
+
+
+
+
+ .header-bottom-side-left .button:hover {
+   transition: all 0.5;
+   font-weight: bold;
+   color: #ffffff;
+   transition: all 0.5;
+
+
+ }
+
+ /* Seção central do header (imagem ou conteúdo) */
+ .header-bottom-side-center {
+   flex-basis: 50%;
+   display: flex;
+   justify-content: center;
+
+ }
+
+ /* Seção dos produtos */
+
+
+
+
+
+
+
+
+
+ h3.section-titles {
+   font-size: 2.5rem;
+   color: #020131;
+   /* Cor de destaque */
+   margin-bottom: 1rem;
+   text-align: center;
+   font-weight: bold;
+   position: relative;
+   margin-top: 7rem;
+ }
+
+ .subtitles-underline {
+   width: 80px;
+   height: 4px;
+   background-color: #c6008c;
+   margin: 0 auto;
+   border-radius: 2px;
+   margin-bottom: 6rem;
+
+ }
+
+ /* Estilos das colunas de produtos */
+ .cols-3 {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 0rem;
+   padding: 2rem;
+ }
+
+ .cols-3 img {
+   max-width: 100%;
+   height: auto;
+   border: 2px solid #ff00b3;
+   border-radius: 10px;
+ }
+
+ .cols-4 {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 2rem;
+   margin-top: 3rem;
+   margin-bottom: 50rem;
+ }
+
+ .cols-1 {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 2rem;
+   margin-top: 3rem;
+   margin-bottom: 50rem;
+ }
+
+ .cols-2 {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 2rem;
+   margin-top: 3rem;
+   margin-bottom: 50rem;
+ }
+
+ .cols-4 img {
+   max-width: 100%;
+   height: auto;
+   transition: transform 0.3s ease, opacity 0.3s ease;
+   opacity: 0.9;
+   border: 2px solid #ffa600;
+   border-radius: 10px;
+
+ }
+
+ .cols-4 img:hover {
+   transform: scale(1.05);
+   opacity: 1;
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+
+ }
+
+ /* Estilo do botão de compra */
+
+
+
+ .modal {
+   display: none;
+   position: fixed;
+   z-index: 9999;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0, 0, 0, 0.5);
+ }
+
+ .modal-conteudo {
+   background-color: #fff;
+   margin: 15% auto;
+   padding: 30px;
+   border: 1px solid #ccc;
+   width: 90%;
+   max-width: 400px;
+   border-radius: 10px;
+   text-align: center;
+   animation: fadeIn 0.3s ease;
+ }
+
+ .modal-conteudo p {
+   font-size: 16px;
+   color: #333;
+ }
+
+ .fechar {
+   color: #aaa;
+   float: right;
+   font-size: 24px;
+   font-weight: bold;
+   cursor: pointer;
+ }
+
+ .fechar:hover {
+   color: #000;
+ }
+
+ @keyframes fadeIn {
+   from {
+     opacity: 0;
+     transform: scale(0.9);
+   }
+
+   to {
+     opacity: 1;
+     transform: scale(1);
+   }
+ }
+
+
+
+
+
+ .filter {
+   flex-direction: column;
+   align-items: center;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   /* Cria uma grid com 3 colunas */
+   gap: 1rem;
+   /* Espaçamento entre os círculos */
+   margin-top: 1rem;
+   margin-bottom: -20rem;
+   padding: 1rem;
+   border-right: 1px solid #ddd;
+   /* Linha de separação */
+   width: 200px;
+   /* Ajuste conforme necessário */
+ }
+
+
+ .filter-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+
+ }
+
+
+ .filter-button {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   border: 2px solid #ccc;
+   cursor: pointer;
+   transition: border-color 0.35s;
+   margin-bottom: 0.5rem;
+
+
+ }
+
+ .filter-button[data-color="azul"] {
+   background-color: #0000ff;
+
+ }
+
+ .filter-button[data-color="marrom"] {
+   background-color: #8b4513;
+ }
+
+ .filter-button[data-color="rosa"] {
+   background-color: #ffc0cb;
+ }
+
+ .filter-button[data-color="verde"] {
+   background-color: #008000;
+ }
+
+ .filter-button[data-color="vermelho"] {
+   background-color: #ff0000;
+ }
+
+ .filter-button[data-color="todos"] {
+   background: rgb(0, 26, 255);
+   background-image: linear-gradient(180deg, #ff88ef 0, #ff85db 3.85%, #ff85c6 7.69%, #ff86b2 11.54%, #ff8b9e 15.38%, #ff908a 19.23%, #ff9878 23.08%, #ffa066 26.92%, #ffa955 30.77%, #ffb145 34.62%, #ffba36 38.46%, #ffc227 42.31%, #ffca19 46.15%, #f8d110 50%, #e5d712 53.85%, #d1dd1e 57.69%, #bce32d 61.54%, #a6e73d 65.38%, #8deb4f 69.23%, #6fee61 73.08%, #46f174 76.92%, #00f487 80.77%, #00f69c 84.62%, #00f7b1 88.46%, #00f8c6 92.31%, #00f9dc 96.15%, #00f9f1 100%);
+ }
+
+ .filter-button:hover {
+   border-color: #000000;
+ }
+
+ .color-name {
+   font-size: 0.66rem;
+   color: #2c2c2c;
+   margin-top: 0.5rem;
+   text-align: center;
+   margin-bottom: rem;
+ }
+
+ /* Grid de Produtos */
+ .product-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+   gap: 8rem;
+   padding: 10rem;
+   margin: 1rem auto;
+   max-width: 1160px;
+ }
+
+ /* Media Queries */
+ @media (max-width: 800px) {
+   .product-grid {
+     display: grid;
+     /* Certifique-se de que o display está definido como grid */
+     grid-template-columns: 1fr;
+     /* Um único item por linha */
+     gap: 4rem;
+     /* Espaçamento entre os itens */
+     padding: 1rem;
+     /* Espaçamento interno da grid */
+   }
+
+   .product-item {
+     border: 1px solid #ccc;
+     /* Adiciona uma borda para melhor definição */
+     border-radius: 8px;
+     /* Borda arredondada para os itens */
+     padding: 1rem;
+     /* Espaçamento interno do item */
+     transition: transform 0.2s;
+     /* Efeito de transição ao passar o mouse */
+   }
+
+   .product-item:hover {
+     transform: scale(1.05);
+     /* Efeito de zoom ao passar o mouse */
+   }
+ }
+
+ .h2-produtos {
+   font-family: 'Courier New', Courier, monospace;
+   font-optical-sizing: auto;
+   font-style: normal;
+   text-align: center;
+   font-weight: bold;
+   margin-bottom: 4rem;
+   margin-top: 2rem;
+ }
+
+ .escrito {
+   font-family: "Lilita One", sans-serif;
+   font-weight: 200;
+   font-display: bold;
+   color: #292929;
+   text-shadow: 2px 2px 2px #b1a8a8;
+   position: absolute;
+   top: 109%;
+   left: 4.2%;
+   bottom: 100%;
+   transform: translate(-50%, -50%);
+ }
+
+ @media (max-width: 800px) {
+
+
+   .filter {
+     width: 100%;
+     /* O filtro ocupa a largura total em dispositivos móveis */
+     margin: 0;
+     /* Remove a margem em dispositivos móveis */
+     padding: 0;
+     /* Remove o padding em dispositivos móveis */
+     border-right: none;
+     /* Remove a linha de separação */
+     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+     /* Ajusta a grid para dispositivos móveis */
+     overflow-x: auto;
+     /* Permite rolar horizontalmente se necessário */
+   }
+ }
+
+ /* CSS para a mensagem de carregamento */
+ .loading-message {
+   display: none;
+   margin-top: 20px;
+   font-size: 1.5rem;
+   color: #ff0000;
+   text-align: center;
+ }
+
+ .scroll {
+   /*classe com qualquer nome*/
+   overflow: auto;
+ }
+
+ .product-price {
+   font-size: 120%;
+ }
+
+ .product-name {
+   font-size: 150%;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   font-style: normal;
+ }
+
+ .product {
+   position: relative;
+ }
+
+ .buy-button {
+   background-color: #28a745;
+   /* Cor de fundo verde */
+   color: white;
+   /* Cor do texto */
+   margin-bottom: -2rem;
+   border: none;
+   /* Sem borda */
+   padding: 10px 20px;
+   /* Espaçamento interno */
+   font-size: 16px;
+   /* Tamanho da fonte */
+   cursor: pointer;
+   /* Muda o cursor para uma mão ao passar o mouse */
+   border-radius: 5px;
+   /* Cantos arredondados */
+   transition: background-color 0.3s ease, transform 0.2s ease;
+
+ }
+
+ .buy-button:active {
+   transform: scale(1.1);
+   /* Aumenta o tamanho do botão ao clicar */
+   background-color: #45a049;
+   /* Altera a cor ao clicar */
+ }
+
+ /* Efeito de hover */
+ .buy-button:hover {
+   transition: all 0.5s;
+   background-color: #218838;
+   /* Cor de fundo mais escura no hover */
+ }
+footer {
+   background-color: rgb(241, 236, 236);
+   color: #000000;
+   padding: 50px 0;
+   text-align: center;
+ }
+
+ .footer-container {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+ }
+
+ .footer-section {
+   width: 25%;
+   margin-bottom: 20px;
+ }
+
+ .footer-section h2 {
+  color: #000000;
+   font-family: 'Oswald', sans-serif;
+   font-size: 18px;
+   margin-bottom: 15px;
+ }
+
+ .footer-section p,
+ .footer-section ul,
+ .footer-section a {
+   font-family: 'Montserrat', sans-serif;
+   color: #1f1f1f;
+   font-size: 14px;
+   line-height: 1.5;
+ }
+
+ .footer-section ul {
+   list-style: none;
+
+ }
+
+
+
+ .footer-section a {
+   text-decoration: none;
+   color: #1d1d1d;
+   transition: color 0.3s;
+ }
+
+ .footer-section a:hover {
+   color: #ff6347;
+ }
+
+ .footer-bottom {
+   border-top: 1px solid rgb(53, 51, 51);
+   font-size: 12px;
+ }
+
+ .redes-sociais a {
+   display: inline-block;
+   margin-right: 10px;
+   transition: transform 0.3s;
+ }
+
+ .redes-sociais a img {
+   width: 24px;
+   height: 24px;
+ }
+
+ .redes-sociais a:hover {
+   transform: scale(1.2);
+ }
+
+
+
+ @keyframes particle-animation {
+   0% {
+     transform: scale(1);
+     opacity: 0.8;
+   }
+
+   50% {
+     transform: scale(1.5);
+     opacity: 0.5;
+   }
+
+   100% {
+     transform: scale(0);
+     opacity: 0;
+   }
+ }
+
+
+ /* Estilos para a seção de suporte */
+ #suporte {
+   padding: 10px;
+   background-color: #f9f9f9;
+   margin: 0px 0;
+   border-radius: 8px;
+   /* Bordas arredondadas */
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   /* Sombra para dar profundidade */
+   margin-right: 70%;
+
+
+ }
+
+ #suporte h2 {
+   margin-bottom: 15px;
+   font-family: 'Oswald', sans-serif;
+   color: #3b3939;
+   padding: -15%;
+ }
+
+ #suporte p {
+   margin-bottom: 20px;
+   color: #000000;
+   /* Cor do texto */
+ }
+
+ #support-form {
+   display: flex;
+   flex-direction: column;
+ }
+
+ #support-form label {
+   margin: 5px 0;
+ }
+
+ #support-form input,
+ #support-form textarea {
+   padding: 12px;
+   margin-bottom: 15px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   transition: border-color 0.3s;
+   /* Transição suave na mudança de cor da borda */
+ }
+
+
+
+ #support-form button {
+   padding: 12px;
+   background-color: #5cb85c;
+   /* Cor de fundo do botão */
+   color: white;
+   /* Cor do texto do botão */
+   border: none;
+   /* Remove a borda padrão */
+   border-radius: 4px;
+   cursor: pointer;
+   /* Cursor de mão ao passar sobre o botão */
+   font-size: 16px;
+   /* Aumenta o tamanho da fonte */
+   transition: background-color 0.3s;
+   /* Transição suave ao passar o mouse */
+ }
+
+ #support-form button:hover {
+   background-color: #4cae4c;
+   /* Cor de fundo ao passar o mouse */
+ }
+
+ @media (max-width: 768px) {
+   #suporte h2 {
+     width: 100%;
+     /* Aumenta a largura do título */
+     text-align: center;
+     margin-bottom: 10px;
+     padding: 0;
+   }
+
+   #suporte p {
+     width: 180%;
+     /* Aumenta a largura do parágrafo */
+     font-size: 14px;
+     margin-bottom: 15px;
+     text-align: justify;
+     /* Justifica o texto para distribuir melhor as palavras */
+   }
+ }
+
+
+ #support-form {
+   padding: 10px;
+   /* Adiciona um pouco de padding para espaçamento */
+ }
+
+ #support-form input,
+ #support-form textarea {
+   padding-right: 50px;
+   /* Diminui o padding para economizar espaço */
+   font-size: 14px;
+   /* Ajusta o tamanho da fonte para dispositivos móveis */
+ }
+
+ #support-form button {
+   font-size: 14px;
+   /* Ajusta o tamanho da fonte do botão */
+   padding: 10px;
+   /* Diminui o padding para dispositivos menores */
+ }
+
+ .gray-background {
+    background: linear-gradient(135deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%) center/cover no-repeat;min-height:100vh;
+   padding: 40px;
+ }
+
+ .pager-inner-content {
+   max-width: 8000px;
+   /* aumenta espaço disponível */
+   margin: 0 auto;
+ }
+
+ /* Garante que o conteúdo do grid se expanda 100% */
+ .imagens {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 20px;
+   width: 100%;
+
+ }
+
+ /* Cada caixa de imagem ocupa toda a largura disponível */
+ .img-box {
+   position: relative;
+   width: 100%;
+   text-align: center;
+   /* centraliza botões inline */
+ }
+
+ /* A imagem vai ocupar toda a largura do seu container */
+ .img-box img {
+
+   width: 100%;
+   height: auto;
+   display: block;
+   filter: brightness(72%);
+ }
+
+ .img-text {
+   font-family: 'Poppins', sans-serif;
+   position: absolute;
+   bottom: 35px;
+   /* distância de baixo da imagem */
+   left: 25px;
+   /* distância da esquerda */
+   transform: none;
+   /* remove o translate porque não precisa centralizar */
+   color: rgb(255, 255, 255);
+   padding: 8px 12px;
+   border-radius: 6px;
+   font-size: 12px;
+   text-align: left;
+   margin-bottom: 2rem;
+ }
+
+ .flex-container img {
+   max-width: 300px;
+   /* limite máximo opcional */
+   border-radius: 10px;
+ }
+
+ .titulo-destaque1 {
+   font-family: 'Mulish', sans-serif;
+   font-weight: 300;
+   text-align: center;
+   font-size: 20px;
+   margin-TOP: -30px;
+   color: rgb(61, 61, 61);
+   /* ou outra cor que combine com o fundo */
+   letter-spacing: 0.5px;
+ }
+
+ .btn-nike {
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: fit-content;
+   margin: 1.5rem auto 0;
+   padding: 12px 40px;
+   background-color: #000000;
+   color: #ffffff;
+   border-radius: 30px;
+   font-size: 16px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   text-decoration: none;
+   margin-bottom: 1.5rem;
+ }
+
+ .btn-nike:hover {
+   background-color: #333;
+ }
+
+ .btn1-nike {
+
+   text-decoration: none;
+   font-family: 'Mulish', sans-serif;
+   position: absolute;
+   bottom: 30px;
+   /* perto da borda inferior */
+   left: 30px;
+   /* canto direito */
+   background-color: rgb(250, 249, 249);
+   color: rgb(2, 2, 2);
+   border: none;
+   padding: 5px 8px;
+   border-radius: 30px;
+   font-weight: 350;
+   cursor: pointer;
+
+ }
+
+
+
+
+ .show {
+   padding-bottom: 40px;
+   display: flex;
+   font-family: 'Poppins';
+   font-weight: 200;
+   justify-content: center;
+ }
+
+ .btn2-nike {
+   font-family: "Mulish", sans-serif;
+   position: absolute;
+   bottom: 30px;
+   /* perto da borda inferior */
+   left: 30px;
+   /* canto direito */
+   background-color: rgb(250, 249, 249);
+   color: rgb(2, 2, 2);
+   border: none;
+   padding: 12px 18px;
+   border-radius: 30px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+
+ .btn2-nike:hover {
+   opacity: 1;
+   background-color: #ffffff;
+ }
+
+ .item {
+   position: relative;
+   width: fit-content;
+
+ }
+
+ .item img {
+
+   display: block;
+   max-width: 100%;
+   height: auto;
+
+ }
+
+ .item img :hover {
+   transform: scale(1.03);
+ }
+
+ .Cores4 {
+   align-items: center;
+   justify-content: center;
+   font-family: "Mulish";
+   font-size: 25px;
+   font-weight: 110;
+   position: absolute;
+   right: 140px;
+   /* canto direito */
+   background-color: rgb(250, 249, 249);
+   color: rgb(2, 2, 2);
+   border: none;
+
+ }
+
+ @media (max-width: 400px) {
+   .product-grid {
+     grid-template-columns: 1fr;
+     gap: 0px;
+   }
+ }
+
+ /* 🔽 Responsividade para telas pequenas */
+ @media (max-width: 768px) {
+   .imagens {
+     grid-template-columns: 1fr;
+     /* Uma imagem por linha */
+     gap: 0px;
+   }
+
+   .img-text,
+   .btn1-nike {
+     left: 10px;
+     right: 10px;
+     text-align: center;
+   }
+ }
+
+ @media (max-width: 808px) {
+   .imagens {
+     grid-template-columns: 1fr;
+     /* uma imagem por linha */
+     padding: 0;
+     /* remove espaços extras */
+   }
+
+   .img-box {
+     width: 100%;
+   }
+
+   .img-text {
+     font-size: 14px;
+     bottom: 40px;
+     left: 10px;
+     right: 10px;
+     text-align: left;
+   }
+
+   .btn1-nike {
+     font-size: 13px;
+     padding: 8px 12px;
+     bottom: 10px;
+     left: 10px;
+     border-radius: 15px;
+     max-width: calc(100% - 20px);
+     /* evita ultrapassar a imagem */
+   }
+ }
+
+ @media (max-width: 768px) {
+
+   .pager-inner-content,
+   .gray-background {
+     padding: 5px;
+   }
+ }
+
+ @media (max-width: 1px) {
+   .imagens {
+     grid-template-columns: 1fr;
+     /* uma imagem por linha */
+     padding: 0;
+     /* remove espaços extras */
+   }
+
+   .img-box {
+     width: 100%;
+   }
+
+   .img-text {
+     font-size: 14px;
+     bottom: 40px;
+     left: 10px;
+     right: 10px;
+     text-align: left;
+   }
+
+   .btn1-nike {
+     font-size: 13px;
+     padding: 8px 12px;
+     bottom: 10px;
+     left: 10px;
+     border-radius: 15px;
+     max-width: calc(100% - 20px);
+     /* evita ultrapassar a imagem */
+   }
+ }
+
+ @media (max-width: 768px) {
+   .img-box img {
+     aspect-ratio: 1 / 1;
+     /* torna a imagem quadrada */
+     object-fit: cover;
+     /* preenche o espaço cortando se necessário */
+     width: 100%;
+     height: auto;
+     display: block;
+   }
+ }
+
+ 
+ 
+ .modal1 {
+  font-family: 'Mulish';
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  margin-top: 10rem;
+  width: 100%;
+  height: 100%;
+  
+  /* Corrigido: Garante que o modal seja um contêiner flex para centralização */
+   
+  justify-content: center;
+  align-items: center;
+}
+
+.modal1-content {
+ 
+  /* Corrigido: Removido margin-top e margin-left fixos que impediam a centralização */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 40px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  max-height: 80vh;
+  /* Adicionado: Garante que o conteúdo interno esteja centralizado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Adicionado: Centraliza o bloco do modal dentro do contêiner flex (.modal1) */
+  margin: auto;
+  overflow-y: auto;
+}
+
+
+ .close-btn1 {
+   position: absolute;
+   right: 15px;
+   top: 10px;
+   font-size: 24px;
+   cursor: pointer;
+ }
+
+ .modal1-content input {
+   width: 90%;
+   margin: 10px 0;
+   padding: 10px;
+   font-size: 16px;
+ }
+
+ #register-message {
+   font-size: 14px;
+   text-align: center;
+ }
+
+ #register-loader {
+   font-size: 14px;
+   font-style: italic;
+   text-align: center;
+   color: #555;
+ }
+
+ .loader {
+   border: 4px solid #f3f3f3;
+   /* cor clara da borda */
+   border-top: 4px solid #3498db;
+   /* cor azul da parte rotativa */
+   border-radius: 50%;
+   width: 24px;
+   height: 24px;
+   animation: spin 1s linear infinite;
+   margin: 0 auto;
+ }
+
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
+
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ /* Estilo geral para botões dentro do modal */
+ #login-modal1 button {
+   font-family: Arial, Helvetica, sans-serif;
+   margin-bottom: 4%;
+   background-color: #000000;
+   /* azul */
+   color: rgb(255, 255, 255);
+   border: none;
+   padding: 10px 20px;
+   margin-top: 15px;
+   font-size: 16px;
+   font-weight: 600;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   display: block;
+   width: 100%;
+ }
+
+
+ /* Focus para acessibilidade */
+ #login-modal1 button:focus {
+   outline: none;
+   box-shadow: 0 0 0 3px #85c1e9;
+ }
+
+ @media (max-width: 600px) {
+  .modal1-content {
+    /* Ocupa mais espaço na tela para melhor usabilidade em dispositivos móveis */
+    width: 95%;
+    max-width: none; /* Remove o limite máximo para telas pequenas */
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .modal1-content input {
+    width: 100%; /* Inputs ocupam toda a largura */
+  }
+
+  #login-modal1 button {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+}
+
+/* Para telas entre 601px e 1024px (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .modal1-content {
+    /* Um pouco maior para tablets */
+    max-width: 450px;
+    padding: 25px;
+  }
+}
+
+ body{background: linear-gradient(135deg,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%) center/cover no-repeat;min-height:100vh}
+.card{gap: 10rem;   width:460px; height:580px; background-color:#fff;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.1);transition:.3s;font-family:'Segoe UI',sans-serif;margin: 0px;  ;overflow:hidden;position:relative;cursor:pointer}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.15)}
+.badge{position:absolute;top:10px;right:10px;background: linear-gradient(to right,  rgba(169,3,41,1) 0%,rgba(196,72,72,1) 44%,rgba(170,34,56,1) 100%);color:#fff;padding:5px 10px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,.2);z-index:10}
+.tilt{overflow:hidden}
+.img{height:300px;overflow:hidden}
+.img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .img img{transform:scale(1.05)}
+.info{padding:20px}
+.cat{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#71717A;margin-bottom:5px}
+.title{font-size:18px;font-weight:700;color:#18181B;margin:0 0 10px;letter-spacing:-.5px}
+.desc{font-size:13px;color:#52525B;line-height:1.4;margin-bottom:12px}
+.feats{display:flex;gap:6px;margin-bottom:15px}
+.feat{font-size:10px;background:#F4F4F5;color:#71717A;padding:3px 8px;border-radius:10px;font-weight:500}
+.bottom{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.price{display:flex;flex-direction:column}
+.old{font-size:13px;text-decoration:line-through;color:#A1A1AA;margin-bottom:2px}
+.new{font-size:20px;font-weight:700;color:#18181B}
+.btn{background:linear-gradient(45deg,#18181B,#27272A);color:#fff;border:none;border-radius:10px;padding:8px 15px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:.3s;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.btn:hover{background:linear-gradient(45deg,#27272A,#3F3F46);transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.15)}
+.btn:before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:.5s}
+.btn:hover:before{left:100%}
+.icon{transition:transform .3s}
+.btn:hover .icon{transform:rotate(-10deg) scale(1.1)}
+.meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #F4F4F5;padding-top:12px}
+.rating{display:flex;align-items:center;gap:2px}
+.rcount{margin-left:6px;font-size:11px;color:#71717A}
+.stock{font-size:11px;font-weight:600;color:#22C55E}
+
+.container {
+  display: flex;              /* coloca os cards lado a lado */
+  flex-wrap: nowrap;          /* impede que quebrem para a linha de baixo */
+  justify-content: center;/* alinha os cards à esquerda */
+  align-items: center;
+  overflow-x: auto;   
+  margin: 2rem;        /* adiciona rolagem horizontal */
+  gap: 10px;                  /* espaço mínimo entre cards */
+  padding: 10px 0;            /* pequeno espaçamento superior/inferior */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .card {
+    width: 400px;
+    height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: flex-start; /* rolagem horizontal no tablet */
+    overflow-x: auto;
+    gap: 15px;
+  }
+
+  .card {
+    width: 350px;
+    height: 500px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    
+    flex-wrap: nowrap; /* mantém os cards em linha com scroll */
+    overflow-x: auto;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 10px;
+    padding: 20px;
+    padding-bottom: 1rem;
+  }
+
+  .card {
+    width: 300px;
+    height: 460px;
+    flex: 0 0 auto; /* mantém o tamanho fixo no scroll horizontal */
+    margin: 0;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .img {
+    height: 180px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .price {
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+    .alert {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      font-weight: bold;
+      display: none;
+    }
+
+    .alert-error {
+      color: #a94442;
+      background-color: #f2dede;
+      border: 1px solid #ebccd1;
+    }
+
+    .alert-success {
+      color: #3c763d;
+      background-color: #dff0d8;
+      border: 1px solid #d6e9c6;
+    }
