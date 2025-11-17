@@ -1,3 +1,4 @@
+// routes/cart.js (CÓDIGO COMPLETO)
 import express from 'express';
 import pool from '../config/database.js';
 
@@ -43,10 +44,10 @@ router.post('/add', async (req, res) => {
   try {
     const { userId, productId, quantity = 1, size } = req.body;
     
-    if (!userId || !productId) {
+    if (!userId || !productId || !size) {
       return res.status(400).json({
         success: false,
-        error: 'userId e productId são obrigatórios'
+        error: 'userId, productId e size são obrigatórios'
       });
     }
     
@@ -66,17 +67,17 @@ router.post('/add', async (req, res) => {
       });
     }
     
-    // Verificar se o item já existe no carrinho
+    // Verificar se o item já existe no carrinho COM O MESMO TAMANHO
     const [existingItems] = await connection.query(
-      'SELECT * FROM cart WHERE user_id = ? AND product_id = ?',
-      [userId, productId]
+      'SELECT * FROM cart WHERE user_id = ? AND product_id = ? AND size = ?',
+      [userId, productId, size]
     );
     
     if (existingItems.length > 0) {
       // Atualizar quantidade
       await connection.query(
-        'UPDATE cart SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?',
-        [quantity, userId, productId]
+        'UPDATE cart SET quantity = quantity + ? WHERE id = ?',
+        [quantity, existingItems[0].id]
       );
     } else {
       // Inserir novo item

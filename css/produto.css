@@ -676,3 +676,30 @@ footer {
     padding: 25px;
   }
 }
+/* ===== SELEÇÃO DE TAMANHO (NOVO) ===== */
+.tamanho-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.tamanho-container label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.tamanho-container select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.tamanho-container select:focus {
+  border-color: #e6007e;
+}

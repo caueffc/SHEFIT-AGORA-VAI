@@ -197,20 +197,20 @@
     }
 
     // ========================================
-    // LÓGICA DO CARRINHO ATUALIZADA
+    // LÓGICA DO CARRINHO ATUALIZADA (API-BASED)
     // ========================================
 
     // Função auxiliar para formatar o preço
     function formatarPreco(valor) {
-      return valor.toFixed(2).replace('.', ',');
+      return parseFloat(valor).toFixed(2).replace('.', ',');
     }
 
     /**
      * Renderiza os itens do carrinho
      */
-    function renderizarCarrinho() {
-      // Usa a função obterCarrinho do carrinho.js
-      const carrinho = obterCarrinho(); 
+    async function renderizarCarrinho() {
+      // Usa a função obterCarrinho do carrinho.js (agora assíncrona)
+      const carrinho = await obterCarrinho(); 
       const cartItemsContainer = document.getElementById("cart-items");
       
       if (carrinho.length === 0) {
@@ -225,22 +225,23 @@
         const itemElement = document.createElement("div");
         itemElement.classList.add("cart-item");
         
-        // Calcula o subtotal do item
-        const subtotalItem = (parseFloat(item.preco) || 0) * (item.quantidade || 1);
+        // Calcula o subtotal do item (usa item.price e item.quantity da API)
+        const subtotalItem = (parseFloat(item.price) || 0) * (item.quantity || 1);
 
         itemElement.innerHTML = `
           <div class="cart-item-details">
-              <img src="${item.imagem}" alt="${item.nome}" style="width: 100px; height: 100px; object-fit: cover; margin-right: 10px;">
+              <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; margin-right: 10px;">
               
               <div class="item-info">
-                <h3>${item.nome}</h3>
-                <p>Preço Unitário: R$ ${formatarPreco(parseFloat(item.preco) || 0)}</p>
+                <h3>${item.name}</h3>
+                <p>Tamanho: <strong>${item.size}</strong></p> <!-- NOVO: Exibe o tamanho -->
+                <p>Preço Unitário: R$ ${formatarPreco(item.price)}</p>
                 <p>Subtotal: R$ <span id="subtotal-${item.id}">${formatarPreco(subtotalItem)}</span></p>
               </div>
 
               <div class="item-quantidade">
                 <button onclick="alterarQuantidade(${item.id}, -1)">-</button>
-                <span id="quantidade-${item.id}">${item.quantidade}</span>
+                <span id="quantidade-${item.id}">${item.quantity}</span>
                 <button onclick="alterarQuantidade(${item.id}, 1)">+</button>
               </div>
 
@@ -251,24 +252,25 @@
         cartItemsContainer.appendChild(itemElement);
       });
 
-      // Atualiza o total do carrinho
-      document.getElementById("cart-total").textContent = `${formatarPreco(calcularTotal())} R$`;
+      // Atualiza o total do carrinho (agora assíncrono)
+      const total = await calcularTotal();
+      document.getElementById("cart-total").textContent = `${formatarPreco(total)} R$`;
     }
 
     /**
      * Altera a quantidade de um produto e atualiza a exibição
-     * @param {number} produtoId - ID do produto
+     * @param {number} itemId - ID do item no carrinho (não do produto)
      * @param {number} incremento - 1 para aumentar, -1 para diminuir
      */
-    function alterarQuantidade(produtoId, incremento) {
-      const carrinho = obterCarrinho();
-      const produto = carrinho.find(item => item.id === produtoId);
+    async function alterarQuantidade(itemId, incremento) {
+      const carrinho = await obterCarrinho();
+      const item = carrinho.find(i => i.id === itemId);
       
-      if (produto) {
-        const novaQuantidade = produto.quantidade + incremento;
+      if (item) {
+        const novaQuantidade = item.quantity + incremento;
         
-        // Usa a função atualizarQuantidade do carrinho.js
-        atualizarQuantidade(produtoId, novaQuantidade); 
+        // Usa a função atualizarQuantidade do carrinho.js (agora assíncrona)
+        await atualizarQuantidade(itemId, novaQuantidade); 
         
         // Re-renderiza o carrinho para atualizar a interface
         renderizarCarrinho(); 
@@ -277,12 +279,12 @@
 
     /**
      * Remove um item do carrinho e atualiza a exibição
-     * @param {number} produtoId - ID do produto
+     * @param {number} itemId - ID do item no carrinho (não do produto)
      */
-    function removerItem(produtoId) {
+    async function removerItem(itemId) {
       if (confirm('Deseja realmente remover este produto do carrinho?')) {
-        // Usa a função removerDoCarrinho do carrinho.js
-        removerDoCarrinho(produtoId); 
+        // Usa a função removerDoCarrinho do carrinho.js (agora assíncrona)
+        await removerDoCarrinho(itemId); 
         
         // Re-renderiza o carrinho para atualizar a interface
         renderizarCarrinho(); 
@@ -290,7 +292,15 @@
     }
 
     // Inicializa a renderização do carrinho ao carregar a página
-    document.addEventListener('DOMContentLoaded', renderizarCarrinho);
+    document.addEventListener('DOMContentLoaded', () => {
+        // Verifica se o usuário está logado antes de tentar renderizar
+        if (getUserId()) {
+            renderizarCarrinho();
+        } else {
+            document.getElementById("cart-items").innerHTML = "<p>Faça login para visualizar seu carrinho.</p>";
+            document.getElementById("cart-total").textContent = `0,00 R$`;
+        }
+    });
     
   </script>
 </body>
