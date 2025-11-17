@@ -1,12 +1,4 @@
--- ============================================
--- SHEFIT E-COMMERCE - SCHEMA DO BANCO DE DADOS
--- ============================================
-
--- Criar banco de dados
-CREATE DATABASE IF NOT EXISTS shefit_ecommerce 
-CHARACTER SET utf8mb4 
-COLLATE utf8mb4_unicode_ci;
-
+CREATE DATABASE IF NOT EXISTS shefit_ecommerce...
 USE shefit_ecommerce;
 
 -- ============================================
