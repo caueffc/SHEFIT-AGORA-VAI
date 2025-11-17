@@ -24,10 +24,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? (process.env.CORS_ORIGIN || true) 
+    : 'http://localhost:3000',
   credentials: true
-}));
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 // server.js (Meio do arquivo, após os body-parsers)
 // ...
@@ -35,12 +38,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configuração de Sessão <-- ADICIONE ESTE BLOCO
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'seu_segredo_muito_secreto', // Usa a chave secreta do .env
-  resave: false, // Evita salvar a sessão se não houver modificações
-  saveUninitialized: false, // Evita criar sessões para usuários não autenticados
+  secret: process.env.SESSION_SECRET || 'seu_segredo_muito_secreto',
+  resave: false,
+  saveUninitialized: false,
   cookie: { 
-    secure: process.env.NODE_ENV === 'production', // Use 'true' em produção com HTTPS
-    maxAge: 1000 * 60 * 60 * 24 // 24 horas de validade (1 dia)
+    secure: process.env.NODE_ENV === 'production',
+    httpOnly: true,
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    maxAge: 1000 * 60 * 60 * 24
   }
 }));
 
@@ -109,7 +114,8 @@ app.use((err, req, res, next) => {
 });
 
 // Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`📁 Arquivos estáticos sendo servidos de: ${__dirname}`);
+  console.log(`🌎 Ambiente: ${process.env.NODE_ENV || 'development'}`);
 });

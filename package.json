@@ -1,4 +1,7 @@
+
+
 {
+  
   "name": "shefit-ecommerce",
   "version": "1.0.0",
   "description": "E-commerce SheFit com Node.js + Express + MySQL",
@@ -27,3 +30,4 @@
     "mysql2": "^3.6.5"
   }
 }
+
